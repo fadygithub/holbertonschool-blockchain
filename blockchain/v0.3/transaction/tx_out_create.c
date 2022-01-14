@@ -1,6 +1,4 @@
-
 #include "transaction.h"
-
 /**
 * tx_out_create - creates a transaction output
 * @amount: amount of the transaction
