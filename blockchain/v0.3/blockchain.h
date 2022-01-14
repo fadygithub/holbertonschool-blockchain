@@ -29,8 +29,8 @@
  */
 typedef struct blockchain_s
 {
-    llist_t     *chain;
-    llist_t     *unspent;
+	llist_t     *chain;
+	llist_t     *unspent;
 } blockchain_t;
 
 /**
@@ -41,12 +41,12 @@ typedef struct blockchain_s
  */
 typedef struct block_data_s
 {
-    /*
-     * @buffer must stay first, so we can directly use the structure as
-     * an array of char
-     */
-    int8_t buffer[BLOCKCHAIN_DATA_MAX];
-    uint32_t len;
+	/*
+	 * @buffer must stay first, so we can directly use the structure as
+	 * an array of char
+	 */
+	int8_t buffer[BLOCKCHAIN_DATA_MAX];
+	uint32_t len;
 } block_data_t;
 
 /**
@@ -60,18 +60,18 @@ typedef struct block_data_s
  */
 typedef struct block_info_s
 {
-    /*
-     * The order of the elements in this structure should remain the same.
-     * It was designed so every element of this structure is aligned and
-     * doesn't require padding from the compiler.
-     * Therefore, it is possible to use the structure as an array of char,
-     * on any architecture.
-     */
-    uint32_t    index;
-    uint32_t    difficulty;
-    uint64_t    timestamp;
-    uint64_t    nonce;
-    uint8_t     prev_hash[SHA256_DIGEST_LENGTH];
+	/*
+	 * The order of the elements in this structure should remain the same.
+	 * It was designed so every element of this structure is aligned and
+	 * doesn't require padding from the compiler.
+	 * Therefore, it is possible to use the structure as an array of char,
+	 * on any architecture.
+	 */
+	uint32_t    index;
+	uint32_t    difficulty;
+	uint64_t    timestamp;
+	uint64_t    nonce;
+	uint8_t     prev_hash[SHA256_DIGEST_LENGTH];
 } block_info_t;
 
 /**
@@ -84,10 +84,10 @@ typedef struct block_info_s
  */
 typedef struct block_s
 {
-    block_info_t    info; /* This must stay first */
-    block_data_t    data; /* This must stay second */
-    llist_t     *transactions;
-    uint8_t     hash[SHA256_DIGEST_LENGTH];
+	block_info_t    info; /* This must stay first */
+	block_data_t    data; /* This must stay second */
+	llist_t     *transactions;
+	uint8_t     hash[SHA256_DIGEST_LENGTH];
 } block_t;
 
 /**
@@ -100,10 +100,10 @@ typedef struct block_s
  */
 typedef struct hblk_file_s
 {
-    uint8_t hblk_magic[4];
-    uint8_t hblk_version[3];
-    uint8_t hblk_endian;
-    int32_t hblk_blocks;
+	uint8_t hblk_magic[4];
+	uint8_t hblk_version[3];
+	uint8_t hblk_endian;
+	int32_t hblk_blocks;
 } hblk_file_t;
 
 #define UNUSED(x) (void)(x)
@@ -112,11 +112,11 @@ typedef struct hblk_file_s
 
 blockchain_t *blockchain_create(void);
 block_t *block_create(block_t const *prev,
-                      int8_t const *data, uint32_t data_len);
+					  int8_t const *data, uint32_t data_len);
 void block_destroy(block_t *block);
 void blockchain_destroy(blockchain_t *blockchain);
 uint8_t *block_hash(block_t const *block,
-                    uint8_t hash_buf[SHA256_DIGEST_LENGTH]);
+					uint8_t hash_buf[SHA256_DIGEST_LENGTH]);
 int blockchain_serialize(blockchain_t const *blockchain, char const *path);
 blockchain_t *blockchain_deserialize(char const *path);
 int block_is_valid(block_t const *block, block_t const *prev_block, llist_t *all_unspent);
@@ -127,8 +127,9 @@ void _swap_endian(void *p, size_t size);
 
 /* Version 0.2 */
 int hash_matches_difficulty(uint8_t const hash[SHA256_DIGEST_LENGTH],
-                            uint32_t difficulty);
+							uint32_t difficulty);
 void block_mine(block_t *block);
 uint32_t blockchain_difficulty(blockchain_t const *blockchain);
 
 #endif /* __BLOCKCHAIN_H_ */
+
