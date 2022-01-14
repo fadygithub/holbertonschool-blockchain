@@ -22,4 +22,3 @@ unspent_tx_out_t *unspent_tx_out_create(uint8_t
     memcpy(&tr->out, out, sizeof(*out));
     return (tr);
 }
-

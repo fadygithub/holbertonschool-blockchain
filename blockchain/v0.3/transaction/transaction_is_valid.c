@@ -97,4 +97,3 @@ int transaction_is_valid(transaction_t const *transaction,
     }
     return (1);
 }
-

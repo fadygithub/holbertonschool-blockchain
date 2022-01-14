@@ -19,4 +19,3 @@ tx_in_t *tx_in_create(unspent_tx_out_t const *unspent)
     memset(&tr->sig, 0, sizeof(tr->sig));
     return (tr);
 }
-

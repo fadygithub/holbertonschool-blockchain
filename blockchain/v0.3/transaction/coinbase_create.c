@@ -32,4 +32,3 @@ transaction_t *coinbase_create(EC_KEY const *receiver, uint32_t block_index)
     transaction_hash(tr, tr->id);
     return (tr);
 }
-

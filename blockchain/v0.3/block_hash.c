@@ -45,4 +45,3 @@ uint8_t *block_hash(block_t const *block,
     free(buffer);
     return (hash_buf);
 }
-

@@ -54,4 +54,3 @@ int blockchain_serialize(blockchain_t const *blockchain, char const *path)
     fclose(fp);
     return (0);
 }
-

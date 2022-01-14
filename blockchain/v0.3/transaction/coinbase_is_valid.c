@@ -33,4 +33,3 @@ int coinbase_is_valid(transaction_t const *coinbase, uint32_t block_index)
     }
     return (1);
 }
-

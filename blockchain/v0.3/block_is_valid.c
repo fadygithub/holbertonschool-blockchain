@@ -85,4 +85,3 @@ int block_is_valid(block_t const *block, block_t const *prev_block,
         return (verify_genesis_block(block));
     return (verify_blocks(block, prev_block, all_unspent));
 }
-

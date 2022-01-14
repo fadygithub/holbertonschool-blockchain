@@ -30,4 +30,3 @@ block_t *block_create(block_t const *prev, int8_t const *data,
     block->info.timestamp = (uint64_t)time(NULL);
     return (block);
 }
-

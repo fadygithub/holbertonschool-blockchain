@@ -34,4 +34,3 @@ uint32_t blockchain_difficulty(blockchain_t const *blockchain)
         new_difficulty = new_difficulty > 0 ? new_difficulty - 1 : 0;
     return (new_difficulty);
 }
-
