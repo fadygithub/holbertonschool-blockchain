@@ -1,11 +1,15 @@
 #include "blockchain.h"
 
 /**
-* block_destroy - deletes the block
-* @block: block to be deleted
+* blockchain_destroy - deletes the blockchain
+* @blockchain: blockchain to be deleted
 */
-void block_destroy(block_t *block)
+void blockchain_destroy(blockchain_t *blockchain)
 {
-    llist_destroy(block->transactions, 1, (node_dtor_t)transaction_destroy);
-    free(block);
+	if (!blockchain)
+		return;
+	llist_destroy(blockchain->chain, 1, (node_dtor_t)block_destroy);
+	llist_destroy(blockchain->unspent, 1, NULL);
+	free(blockchain);
 }
+
